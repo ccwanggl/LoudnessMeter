@@ -45,19 +45,32 @@
 
         <!--  Main area  -->
         <Grid
-            Background="#333"
+            Background="#1a1c20"
             ColumnDefinitions="Auto, Auto, *"
             Grid.Row="1">
             <!--  Volume Bar  -->
-            <Rectangle
-                Fill="Purple"
+            <Grid
                 Grid.Column="0"
-                Width="110" />
+                RowDefinitions="*,Auto,Auto"
+                Width="150">
+                <Grid Grid.Row="0" />
+                <Label
+                    FontSize="20"
+                    Foreground="White"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center">
+                    LUFS
+                </Label>
+                <StackPanel Grid.Row="2">
+                    <Button>A</Button>
+                    <Button>B</Button>
+                </StackPanel>
+            </Grid>
             <!--  Details Panel  -->
             <Rectangle
                 Fill="Gray"
                 Grid.Column="1"
-                Width="140" />
+                Width="170" />
             <!--  Graph  -->
             <Rectangle Fill="Black" Grid.Column="2" />
         </Grid>

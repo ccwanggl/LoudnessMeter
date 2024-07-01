@@ -1,6 +1,6 @@
 <Window
     Title="LoudnessMeter"
-    d:DesignHeight="400"
+    d:DesignHeight="600"
     d:DesignWidth="600"
     mc:Ignorable="d"
     x:Class="LoudnessMeter.MainWindow"
@@ -51,9 +51,77 @@
             <!--  Volume Bar  -->
             <Grid
                 Grid.Column="0"
+                Margin="0,20"
                 RowDefinitions="*,Auto,Auto"
                 Width="150">
-                <Grid Grid.Row="0" />
+                <!--  Volume Meter Gauge  -->
+                <Grid
+                    ColumnDefinitions="Auto,*,Auto,Auto"
+                    Grid.Row="0"
+                    Margin="10,0"
+                    RowDefinitions="3*,3*,3*,9*,5*,4*,9*,9*,9*,6*,Auto">
+                    <Grid.Styles>
+                        <Style Selector="Label">
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="FontSize" Value="12" />
+                            <Setter Property="HorizontalAlignment" Value="Right" />
+                            <Setter Property="Padding" Value="0" />
+                        </Style>
+                    </Grid.Styles>
+                    <Label Grid.Column="0" Grid.Row="0">0 —</Label>
+                    <Label Grid.Column="0" Grid.Row="1">-3 —</Label>
+                    <Label Grid.Column="0" Grid.Row="2">-6 —</Label>
+                    <Label Grid.Column="0" Grid.Row="3">-9 —</Label>
+                    <Label Grid.Column="0" Grid.Row="4">-18 —</Label>
+                    <Label Grid.Column="0" Grid.Row="5">-23 —</Label>
+                    <Label Grid.Column="0" Grid.Row="6">-27 —</Label>
+                    <Label Grid.Column="0" Grid.Row="7">-36 —</Label>
+                    <Label Grid.Column="0" Grid.Row="8">-45 —</Label>
+                    <Label Grid.Column="0" Grid.Row="9">-54 —</Label>
+                    <Label Grid.Column="0" Grid.Row="10" />
+
+                    <Grid
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Grid.RowSpan="11"
+                        Width="20">
+                        <Grid RowDefinitions="23*,37*">
+                            <Rectangle
+                                Fill="#b05c4e"
+                                Grid.Row="0"
+                                Margin="0,8,0,-8"
+                                Width="20" />
+                            <Rectangle
+                                Fill="White"
+                                Grid.Row="1"
+                                Margin="0,8,0,0"
+                                Width="20" />
+                        </Grid>
+                    </Grid>
+
+                    <Label Grid.Column="2" Grid.Row="0">—</Label>
+                    <Label Grid.Column="2" Grid.Row="1">—</Label>
+                    <Label Grid.Column="2" Grid.Row="2">—</Label>
+                    <Label Grid.Column="2" Grid.Row="3">—</Label>
+                    <Label Grid.Column="2" Grid.Row="4">—</Label>
+                    <Label Grid.Column="2" Grid.Row="5">—</Label>
+                    <Label Grid.Column="2" Grid.Row="6">—</Label>
+                    <Label Grid.Column="2" Grid.Row="7">—</Label>
+                    <Label Grid.Column="2" Grid.Row="8">—</Label>
+                    <Label Grid.Column="2" Grid.Row="9">—</Label>
+                    <Label Grid.Column="2" Grid.Row="10" />
+                    <!--  Arrow  -->
+                    <Canvas
+                        Grid.Column="3"
+                        Grid.Row="0"
+                        Grid.RowSpan="11"
+                        Width="20">
+                        <Rectangle
+                            Fill="White"
+                            Height="20"
+                            Width="20" />
+                    </Canvas>
+                </Grid>
                 <Label
                     FontSize="20"
                     Foreground="White"
@@ -61,9 +129,21 @@
                     HorizontalAlignment="Center">
                     LUFS
                 </Label>
-                <StackPanel Grid.Row="2">
-                    <Button>A</Button>
-                    <Button>B</Button>
+                <StackPanel
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <StackPanel.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="FontSize" Value="12" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Background" Value="#7f98c7" />
+                            <Setter Property="CornerRadius" Value="20" />
+                            <Setter Property="Padding" Value="7,2" />
+                        </Style>
+                    </StackPanel.Styles>
+                    <Button Margin="0,0,20,0">A</Button>
+                    <Button>INT-LRA</Button>
                 </StackPanel>
             </Grid>
             <!--  Details Panel  -->
